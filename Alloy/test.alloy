@@ -1,0 +1,12 @@
+prometheus.scrape "metrics_matilda_web" {
+    targets = [
+      {
+        __address__ = "localhost:55008",
+        job         = "matilda-web",
+      },
+    ]
+    forward_to   = [prometheus.relabel.default_labels.receiver]
+    job_name     = "matilda-web"
+    metrics_path = "/metrics"
+    scheme       = "http"
+}
