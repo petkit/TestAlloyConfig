@@ -10,6 +10,7 @@ declare "matilda_collect" {
         job         = "matilda-web",
     }]
 
+	job_name     = "matilda-web"
     forward_to = [argument.metrics_output.value]
   }
 }
