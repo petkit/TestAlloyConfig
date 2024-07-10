@@ -1,17 +1,7 @@
-declare "matilda_collect" {
-  argument "metrics_output" {
-    optional = false
-    comment  = "Where to send collected metrics."
-  }
-
-  prometheus.scrape "metrics_matilda_web" {
+prometheus.scrape "metrics_matilda_web" {
     targets = [{
         __address__ = "localhost:55008",
         job         = "matilda-web",
     }]
-
-	job_name     = "matilda-web"
-    forward_to = [argument.metrics_output.value]
-  }
 }
 
